@@ -93,7 +93,7 @@ class AuthController extends Controller
     }
 
 
-
+ 
     /* Admin user Logout Function */
     public function logout()
     {
