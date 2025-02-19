@@ -40,5 +40,21 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
+    
+
+
+
+    /**
+     *  Create User using Function
+     * 
+     */
+
+    public function createUser($data)
+    {
+        $result = User::create($data);
+        return $result;
+
+    }
 }
