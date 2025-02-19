@@ -10,8 +10,16 @@ class AuthController extends Controller
 
 
 
+    /* Admin Login View Page Function */
     public function login()
     {
         return view('Admin.login.login');
+    }
+
+    /* Admin Login Post Login  Function */
+    public function loginSubmit(Request $request)
+    {
+        show($_POST);
+
     }
 }

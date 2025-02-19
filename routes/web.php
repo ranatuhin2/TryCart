@@ -22,3 +22,4 @@ Route::get('/', function () {
 
 /*-------------------------------------------Admin Panel Route------------------------------------------------------------------------*/ 
 Route::get('auth',[AuthController::class,'login'])->name('admin.login');
+Route::post('login-submit',[AuthController::class , 'loginSubmit'])->name('admin.loginSubmit');
