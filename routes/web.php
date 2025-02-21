@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
+use App\Jobs\SendMailJobQue;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,6 @@ Route::prefix('admin')->middleware('webGuard')->group(function(){
     Route::get('users',[DashboardController::class, 'usersModule'])->name('admin.users');
 });
 
-
-
-
-
 Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 
@@ -49,6 +46,18 @@ Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 /*--------------------------------------------Test Route------------------------------------------------------------------------------*/ 
 Route::get('test',function(){
-    echo Config::get('constant.ADMIN_PROFILE_PHOTO');
-    exit("Go to Hell!");
+    
+
+    $message = "Mail send using Laravel Queue Work";
+    SendMailJobQue::dispatch($message);
+    SendMailJobQue::dispatch($message);
+    SendMailJobQue::dispatch($message);
+    SendMailJobQue::dispatch($message);
+    SendMailJobQue::dispatch($message);
+    echo "Mail sent Successfully using Queue";
+    echo "<br>";
+    echo "Thanks see you!";
+   
+
+
 });
